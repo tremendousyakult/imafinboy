@@ -69,12 +69,3 @@ def backtest_strategy(symbol, start, end, threshold=30, hold_days=5, window=14):
     return trades
 
 
-if __name__ == "__main__":
-    # Example usage: find oversold stocks
-    symbols = ["AAPL", "MSFT", "TSLA"]
-    try:
-        oversold = find_oversold(symbols, "2023-01-01", "2023-12-31")
-        for sym, rsi in oversold.items():
-            print(f"{sym} is oversold (RSI={rsi:.2f})")
-    except ImportError as e:
-        print(e)
