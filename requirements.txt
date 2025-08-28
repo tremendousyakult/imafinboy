@@ -1,0 +1,5 @@
+pandas
+numpy
+moomoo
+ib_insync
+ta
