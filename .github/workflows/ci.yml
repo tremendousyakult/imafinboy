@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: [oversold]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          pip install -r models/${{ matrix.model }}/requirements.txt
+          pip install pytest
+      - name: Run tests
+        working-directory: models/${{ matrix.model }}
+        run: pytest
